@@ -3,8 +3,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 import { DollarSign, Globe, Users, TrendingUp, MessageSquare, X, Send, Bot, User, Target, Sparkles, Clock, AlertTriangle, CheckCircle, Info, Lock, Zap, Shield, Heart, Aperture, RefreshCw, Trophy } from 'lucide-react';
 
 // --- Constantes de la API de Gemini ---
-const API_KEY = ""; // La API key se inyectará en el entorno.
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
+const API_KEY = "AIzaSyCNvJSJVnbPK9NawKwYd1Y-fDBf-dMMplY"; // La API key se inyectará en el entorno.
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 const INVESTMENT_COST = 10000; // Costo fijo para todas las inversiones de mercado
 const INITIAL_TIME = 300; // 5 minutos = 300 segundos
 
@@ -448,12 +448,12 @@ function Login({ onLogin }) {
             <div className="space-y-4 mb-8">
                 <input
                     type="text"
-                    placeholder="Nombre de Usuario (Mock)"
+                    placeholder="Nombre de Usuario"
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-5 py-3 text-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-150"
                 />
                 <input
                     type="password"
-                    placeholder="Contraseña (Mock)"
+                    placeholder="Contraseña"
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-5 py-3 text-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-150"
                 />
             </div>
@@ -575,9 +575,9 @@ function ChartView({ data }) {
 
   // Mapeo de nombres y colores para la leyenda
   const lines = [
-    { key: 'Investment', name: 'Inversión Global (Impacto)', color: '#F87171', icon: DollarSign },
-    { key: 'BioTech', name: 'Biotecnología / Salud', color: '#34D399', icon: Heart },
-    { key: 'Security', name: 'Seguridad / Seguros', color: '#FBBF24', icon: Shield },
+    { key: 'Investment', name: 'Bolsa de Valores', color: '#F87171', icon: DollarSign },
+    { key: 'BioTech', name: 'Bienes Raices', color: '#34D399', icon: Heart },
+    { key: 'Security', name: 'Seguros', color: '#FBBF24', icon: Shield },
   ];
 
   const CustomLegend = (props) => {
@@ -601,11 +601,11 @@ function ChartView({ data }) {
 
   return (
     <div className="bg-gray-800 p-4 rounded-lg shadow-lg h-full w-full flex flex-col">
-       <h2 className="text-xl font-semibold mb-2 text-gray-300 flex items-center">
-         <TrendingUp className="w-5 h-5 mr-2 text-red-500" />
-         Mercados Globales
-       </h2>
-       <div className="flex-grow">
+      <h2 className="text-xl font-semibold mb-2 text-gray-300 flex items-center">
+        <TrendingUp className="w-5 h-5 mr-2 text-red-500" />
+        Mercados Globales
+      </h2>
+      <div className="flex-grow">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 10, right: 20, left: -20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
@@ -674,7 +674,7 @@ function ChatAI({ messages, onSendMessage, isLoading }) {
             <span className="text-sm text-gray-400 italic">M.A.I.A. está pensando...</span>
           </div>
         )}
-         <div ref={messagesEndRef} />
+        <div ref={messagesEndRef} />
       </div>
       <form onSubmit={handleSubmit} className="flex space-x-2">
         <input
@@ -760,21 +760,21 @@ function InvestModal({ isOpen, onClose, onMarketInvest, onRDUpgrade, RD_UPGRADE_
   const investmentOptions = [
     { 
       type: 'BioTech', 
-      name: 'Biotecnología / Salud', 
+      name: 'Bienes Raíces', 
       icon: Heart, 
       color: 'green',
       effect: '+10 Influencia, +$100M Economía local.'
     },
     { 
       type: 'Security', 
-      name: 'Seguridad / Seguros', 
+      name: 'Seguros', 
       icon: Shield, 
       color: 'yellow',
       effect: '-5% Vulnerabilidad permanente, +3 Influencia local.'
     },
     { 
       type: 'Investment', 
-      name: 'Inversión Global (Riesgo)', 
+      name: 'Bolsa de Valores', 
       icon: Aperture, // Usando Aperture para 'alto riesgo/alta recompensa'
       color: 'red',
       effect: '+$5,000 Fondos, +5 Influencia Global.'
