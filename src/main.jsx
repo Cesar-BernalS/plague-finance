@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Login from "./components/Login";
-import "./index.css"; // Tailwind
+import App from "./App"; 
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Login onLogin={(username) => console.log("Usuario:", username)} />
+    <App />
   </React.StrictMode>
 );

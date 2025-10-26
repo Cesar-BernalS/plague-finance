@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Esto le dice que busque en todos los archivos JSX/TSX
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {},
