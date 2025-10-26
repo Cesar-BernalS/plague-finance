@@ -349,7 +349,7 @@ export default function App() {
     setIsAiLoading(true);
 
     // --- LLAMADA A GEMINI API (CHAT) ---
-    const systemPrompt = "Eres 'M.A.I.A' (Monetary & Influence AI Advisor), una IA asesora en el juego 'Plague-Finance'. Tu tono es profesional, siniestro y calculador. Analizas datos de un juego de simulación donde el jugador expande su 'influencia' (como una plaga) a través de inversiones financieras. El mapa es por CONTINENTES. *Nunca* rompas el personaje. Da consejos estratégicos y financieros. Sé concisa (2-3 frases).";
+    const systemPrompt = "Eres 'Capitalito' (Monetary & Influence AI Advisor), una IA asesora en el juego 'Plague-Finance'. Tu tono es profesional, siniestro y calculador. Analizas datos de un juego de simulación donde el jugador expande su 'influencia' (como una plaga) a través de inversiones financieras. El mapa es por CONTINENTES. *Nunca* rompas el personaje. Da consejos estratégicos y financieros. Sé concisa (2-3 frases).";
 
     // Damos contexto del estado actual del juego a la IA
     const gameStateContext = `Estado Actual: Fondos: $${assets.money}, Influencia: ${assets.influence}, Puntos I+D: ${assets.researchPoints}. Estado del Mapa (Continentes): ${JSON.stringify(mapData)}`;
@@ -651,7 +651,7 @@ function ChatAI({ messages, onSendMessage, isLoading }) {
     <div className="bg-gray-800 p-4 rounded-lg shadow-lg flex flex-col h-full flex-grow">
       <h2 className="text-xl font-semibold mb-4 text-gray-300 flex items-center">
         <Bot className="w-5 h-5 mr-2 text-cyan-400" />
-        Asistente IA (M.A.I.A.)
+        Asistente IA (Capitalito)
       </h2>
       <div className="flex-grow h-0 overflow-y-auto mb-4 pr-2 space-y-3">
         {messages.map((msg, index) => (
@@ -671,7 +671,7 @@ function ChatAI({ messages, onSendMessage, isLoading }) {
         {isLoading && (
           <div className="flex justify-start items-center space-x-2 px-2">
             <Bot className="w-5 h-5 text-cyan-400 animate-spin" />
-            <span className="text-sm text-gray-400 italic">M.A.I.A. está pensando...</span>
+            <span className="text-sm text-gray-400 italic">Capitalito está pensando...</span>
           </div>
         )}
         <div ref={messagesEndRef} />
